@@ -8,5 +8,9 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-      - name: Prinitng folders
-        run: ls
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+      - name: install Dependecies
+        run: npm ci

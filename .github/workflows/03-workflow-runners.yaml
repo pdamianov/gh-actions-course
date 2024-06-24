@@ -13,4 +13,4 @@ jobs:
       - name: Show OS
         shell: powershell
         run: |
-          echo "This job is running on $RUNNER_OS"
+          echo "This job is running on $Env:RUNNER_OS"

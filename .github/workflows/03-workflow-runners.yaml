@@ -6,11 +6,11 @@ jobs:
     steps:
       - name: Show OS
         run: |
-          echo "This job is running on ${{ env.RUNNER_OS }}"
+          echo "This job is running on $RUNNER_OS"
   windows-echo:
     runs-on: windows-latest
     steps:
       - name: Show OS
         shell: powershell
         run: |
-          echo "This job is running on ${{ env.RUNNER_OS }}"
+          echo "This job is running on $RUNNER_OS"

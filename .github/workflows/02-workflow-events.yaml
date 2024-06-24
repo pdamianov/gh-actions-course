@@ -7,4 +7,4 @@ jobs:
     steps:
       - name: Show the trigger
         run: |
-          echo "${{github.event.action}}"
+          echo "I was triggered by ${{github.event_name}}"

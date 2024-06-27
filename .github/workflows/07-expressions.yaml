@@ -18,7 +18,7 @@ jobs:
           echo "Triggered by: ${{ github.actor }}"
           echo "Branch: ${{ github.ref }}"
           echo "SHA: ${{ github.sha }}"
-          echo "Runner OS: ${{ env.RUNNER_OS }}"
+          echo "Runner OS: ${{ runner.os }}"
       - name: '[debug] Print when triggered from main'
         if: ${{ inputs.debug }} $${{ github.ref == 'refs/heads/main' }}
         run: |

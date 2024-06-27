@@ -12,7 +12,7 @@ jobs:
   echo:
     runs-on: ubuntu-latest
     steps:
-      - name: [ debug] Printstart-up data
+      - name: [debug] Print start-up data
         if: ${{ inputs.debug }}
         run: |
           echo "Triggered by: ${{ github.actor }}"
@@ -23,6 +23,6 @@ jobs:
         if: ${{ inputs.debug }} $${{ github.ref == 'refs/heads/main' }}
         run: |
           echo "I was triggered from main"
-      - name: Normaly executed
+      - name: Normally executed
         run: |
           echo "Hello, world"

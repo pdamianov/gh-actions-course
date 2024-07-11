@@ -6,6 +6,16 @@ on:
         default: true
         description: Enable/disable cache
         type: boolean
+      node-version:
+        required: true
+        description: Node version to use
+        type: choice
+        options:
+          - '21.x'
+          - '20.x'
+          - '18.x'
+          - '16.x'
+        default: '20.x'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,7 +29,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
          node-version: '20.x'
+      - name: Download cached dependencies
+        if: ${{ inputs.use-cache == true }}
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: 13-caching/react-app/node_modules
+          key: deps-node-modules-${{ hashFiles('13-caching/react-app/package-lock.json') }}
       - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           npm ci
       - name: Testing
